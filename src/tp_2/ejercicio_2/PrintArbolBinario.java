@@ -7,7 +7,7 @@ public class PrintArbolBinario<T> {
 
 	}
 
-	public void preOrder(BinaryTree<T> nodo) {
+	public void preOrder(BinaryTree<?> nodo) {
 		System.out.println(nodo.getData());
 
 		if (nodo.hasLeftChild()) {
