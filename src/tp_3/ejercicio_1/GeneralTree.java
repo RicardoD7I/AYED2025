@@ -130,4 +130,33 @@ public class GeneralTree<T> {
 		}
 		return cantMax;
 	}
+
+	public boolean esAncestro(T a, T b) {
+		boolean result = false;
+
+		GeneralTree<T> nodo = buscarNodo(this, a);
+		if (nodo != null) {
+			result = (buscarNodo(nodo, b) != null);
+		}
+
+		return result;
+	}
+
+	private GeneralTree<T> buscarNodo(GeneralTree<T> arbol, T dato) {
+		GeneralTree<T> nodo = null;
+		if (arbol.getData().equals(dato)) {
+			nodo = arbol;
+		} else {
+			if (!arbol.isLeaf()) {
+				List<GeneralTree<T>> children = arbol.getChildren();
+				for (GeneralTree<T> child : children) {
+					nodo = buscarNodo(child, dato);
+					if (nodo != null) {
+						return nodo;
+					}
+				}
+			}
+		}
+		return nodo;
+	}
 }
