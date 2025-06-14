@@ -20,7 +20,7 @@ public class Mapa {
 
 	public List<String> devolverCamino(String ciudad1, String ciudad2) {
 		Vertex<String> origen = mapa.search(ciudad1);
-		Vertex<String> destino = mapa.search(ciudad1);
+		Vertex<String> destino = mapa.search(ciudad2);
 		List<String> resultado = new ArrayList<String>();
 		boolean[] visitados = new boolean[mapa.getSize()];
 		devolverCamino(origen, destino, resultado, visitados);
